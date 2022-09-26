@@ -1,6 +1,5 @@
 import 'package:agora_uikit/agora_uikit.dart';
 import 'package:agora_video_call/pages/home/home_controller.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ConversationController extends GetxController {
@@ -18,9 +17,8 @@ class ConversationController extends GetxController {
 
     // #error
     catch (e) {
-      ScaffoldMessenger.of(Get.context!).showSnackBar(SnackBar(
-        content: Text(e.toString()),
-      ));
+      Get.snackbar("Error", e.toString(),
+          animationDuration: const Duration(minutes: 1));
     }
   }
 
@@ -31,15 +29,23 @@ class ConversationController extends GetxController {
       agoraConnectionData: AgoraConnectionData(
         appId: homeController.appIdController.text,
         channelName: homeController.channelNameController.text,
-        rtmChannelName: homeController.rtmChannelNameController.text,
-        uid: int.parse(homeController.uidController.text),
-        rtmUid: homeController.rtmUidController.text,
-        username: homeController.usernameController.text,
-        tokenUrl: homeController.tokenUrlController.text,
-        tempToken: homeController.tempTokenController.text,
-        tempRtmToken: homeController.tempRtmTokenController.text,
+        rtmChannelName: homeController.rtmChannelNameController.text.isEmpty
+            ? null
+            : homeController.rtmChannelNameController.text,
+        username: homeController.usernameController.text.isEmpty
+            ? null
+            : homeController.usernameController.text,
+        tokenUrl: homeController.tokenUrlController.text.isEmpty
+            ? null
+            : homeController.tokenUrlController.text,
+        tempToken: homeController.tempTokenController.text.isEmpty
+            ? null
+            : homeController.tempTokenController.text,
+        tempRtmToken: homeController.tempRtmTokenController.text.isEmpty
+            ? null
+            : homeController.tempRtmTokenController.text,
         rtmEnabled:
-            homeController.rtmEnabledController.text == "true" ? true : false,
+            homeController.rtmEnabledController.text == "false" ? false : true,
       ),
     );
   }

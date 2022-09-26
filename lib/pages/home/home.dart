@@ -22,8 +22,6 @@ class HomePage extends StatelessWidget {
                       const SizedBox(height: 20),
                       _getRtmChannelName(_),
                       const SizedBox(height: 20),
-                      _getRtmUid(_),
-                      const SizedBox(height: 20),
                       _getusername(_),
                       const SizedBox(height: 20),
                       _getTokenUrl(_),
@@ -33,8 +31,8 @@ class HomePage extends StatelessWidget {
                       _getTempRtmToken(_),
                       const SizedBox(height: 20),
                       _getRtmEnabled(_),
-                      const SizedBox(height: 20),
-                      _getUid(_),
+                      // const SizedBox(height: 20),
+                      // _getUid(_),
                       const SizedBox(height: 20),
                       _getButton(_),
                     ],
@@ -66,12 +64,12 @@ class HomePage extends StatelessWidget {
         ),
       );
 
-  TextField _getUid(HomeController _) => TextField(
-        controller: _.uidController,
-        decoration: const InputDecoration(
-          hintText: "uid (int)",
-        ),
-      );
+  // TextField _getUid(HomeController _) => TextField(
+  //       controller: _.uidController,
+  //       decoration: const InputDecoration(
+  //         hintText: "uid (int)",
+  //       ),
+  //     );
 
   TextField _getAppId(HomeController _) {
     return TextField(
@@ -81,13 +79,6 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
-
-  TextField _getRtmUid(HomeController _) => TextField(
-        controller: _.uidController,
-        decoration: const InputDecoration(
-          hintText: "rtmUid",
-        ),
-      );
 
   TextField _getusername(HomeController _) => TextField(
         controller: _.usernameController,
