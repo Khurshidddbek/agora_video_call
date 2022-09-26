@@ -1,3 +1,13 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class HomeController extends GetxController {}
+import '../conversation/conversation.dart';
+
+class HomeController extends GetxController {
+  var appIdController = TextEditingController();
+  var channelNameController = TextEditingController();
+
+  void navigateToConversationPage() {
+    Get.to(() => const ConversationPage());
+  }
+}
