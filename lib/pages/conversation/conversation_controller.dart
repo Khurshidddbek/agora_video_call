@@ -31,6 +31,15 @@ class ConversationController extends GetxController {
       agoraConnectionData: AgoraConnectionData(
         appId: homeController.appIdController.text,
         channelName: homeController.channelNameController.text,
+        rtmChannelName: homeController.rtmChannelNameController.text,
+        uid: int.parse(homeController.uidController.text),
+        rtmUid: homeController.rtmUidController.text,
+        username: homeController.usernameController.text,
+        tokenUrl: homeController.tokenUrlController.text,
+        tempToken: homeController.tempTokenController.text,
+        tempRtmToken: homeController.tempRtmTokenController.text,
+        rtmEnabled:
+            homeController.rtmEnabledController.text == "true" ? true : false,
       ),
     );
   }
